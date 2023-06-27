@@ -42,6 +42,7 @@ class RunTimeStack {
     }
 
     public int store ( int offsetFromFramePointer ) {
-
+        //what does offset mean? Does it refer to the frames in the runtime stack,
+        // does dumping mean saving values as variables?
     }
 }
