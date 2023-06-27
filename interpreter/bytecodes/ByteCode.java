@@ -1,5 +1,7 @@
 package interpreter.bytecodes;
 
+import interpreter.virtualmachine.VirtualMachine;
+
 public interface ByteCode {
     static ByteCode getNewInstance(String type, String[] args) {
         // option shift enter, for new class
@@ -10,4 +12,8 @@ public interface ByteCode {
             default -> throw new IllegalArgumentException();
         }
     }
+
+    void execute(VirtualMachine vm);
+
+
 }

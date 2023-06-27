@@ -16,4 +16,8 @@ public class VirtualMachine {
         this.returnAddress = new Stack<>();
         this.programCounter = 0;
     }
+
+    public void push(int valueToPush){
+        this.runTimeStack.push(valueToPush);
+    }
 }
