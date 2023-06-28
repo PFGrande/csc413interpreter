@@ -41,9 +41,19 @@ class RunTimeStack {
 //        }
     }
 
+    // offset = # of slots above current frame marker
+    // frame markers = between start and end of frames, does NOT point to a slot
+
     public int store ( int offsetFromFramePointer ) { // stores value popped in runTimeStack
         int toBeStored = pop();
-        runTimeStack.set(offsetFromFramePointer, toBeStored);
+        runTimeStack.set(offsetFromFramePointer + framePointer.peek(), toBeStored); // current frame + offset = position in current frame
         return toBeStored;
     }
+
+    public int load ( int offsetFromFramePointer ) {
+        return push(runTimeStack.get(offsetFromFramePointer + framePointer.peek())); // offset from the frame pointer
+    }
+
+    
+
 }
