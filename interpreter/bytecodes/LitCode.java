@@ -2,7 +2,7 @@ package interpreter.bytecodes;
 
 import interpreter.virtualmachine.VirtualMachine;
 
-public class LitCode implements ByteCode {
+public class LitCode implements ByteCode { // LIT has the easiest dump
     private String id;
     private int valueToPush;
     // not storing args because it is a waste of memory D:<
@@ -26,6 +26,7 @@ public class LitCode implements ByteCode {
         if (this.id != null) {
             base += " " + this.id + "\t int " + this.id;
         }
+        return base;
 
 
 //        if (this.id == null) { // java doesn't convert null to false
