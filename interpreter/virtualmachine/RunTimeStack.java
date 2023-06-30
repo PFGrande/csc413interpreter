@@ -55,7 +55,7 @@ class RunTimeStack {
     }
 
     public void newFrameAt(int offsetFromTopOfRunStack) {
-        framePointer.push(offsetFromTopOfRunStack); // slots down from the run time stack
+        framePointer.push((runTimeStack.size() - 1) - offsetFromTopOfRunStack); // slots down from the top of the runTimeStack
     }
 
     public void popFrame () {
