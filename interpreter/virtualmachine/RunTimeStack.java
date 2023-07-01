@@ -55,31 +55,34 @@ class RunTimeStack { // encountered error due to apple silicon
         return push(runTimeStack.get(offsetFromFramePointer + framePointer.peek())); // offset from the frame pointer
     }
 
-    // offsetFromTopOfRunStack = # of slots before the top of the stack where the new frame will be created
+    // offsetFromTopOfRunStack = slots down from the top of the run time stack, determines what values are part of a frame.
+    // From my understanding: the runTimeStack has values and the framePointerStack keeps track of the index new frames start
+    // because new values are inserted at the end of the runTimeStack, the offsetFromTopOfRunStack determines which new values
+    // are part of a new frame
     public void newFrameAt(int offsetFromTopOfRunStack) {
-        framePointer.push(offsetFromTopOfRunStack);
+        framePointer.push((runTimeStack.size()-1) - offsetFromTopOfRunStack);
     }
 
     public void popFrame () {
         framePointer.pop();
     }
 
-//    public static void main(String[] args) {
-//        RunTimeStack rts = new RunTimeStack();
-//        rts.push(1);
-//        rts.push(2);
-//        rts.push(3);
-//        rts.newFrameAt(0);
-//        rts.push(4);
-//        rts.push(5);
-//        rts.push(6);
-//        rts.newFrameAt(0);
-//        rts.push(7);
-//        rts.push(8);
-//        rts.newFrameAt(0);
-//
-//
-//    }
+    public static void main(String[] args) {
+        RunTimeStack rts = new RunTimeStack();
+        rts.push(1);
+        rts.push(2);
+        rts.push(3);
+        rts.newFrameAt(0);
+        rts.push(4);
+        rts.push(5);
+        rts.push(6);
+        rts.newFrameAt(0);
+        rts.push(7);
+        rts.push(8);
+        rts.newFrameAt(2);
+
+
+    }
 
 
 }
