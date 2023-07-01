@@ -1,6 +1,7 @@
 package interpreter.virtualmachine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
@@ -19,8 +20,27 @@ class RunTimeStack { // encountered error due to apple silicon
     }
 
     public String dump() {
+        Stack<Integer> copyPointers = framePointer;
+        List<List<Integer>> runTimeSubLists = new ArrayList<>();
 
-        return null; //placeholder
+
+        int endFrame = runTimeStack.size()-1;
+        int beginningFrame = copyPointers.peek();
+
+        do { // pop and peek before reaching final element in stack
+            runTimeSubLists.add(runTimeStack.subList(beginningFrame, endFrame));
+            endFrame = copyPointers.pop();
+            beginningFrame = copyPointers.peek();
+            System.out.println(beginningFrame);
+        } while(copyPointers.size() >= 0);
+
+        String outputFrames = "";
+
+        for (int i = runTimeSubLists.size()-1; i >= 0; i--) {
+            outputFrames = outputFrames + runTimeSubLists.get(i).toString();
+        }
+
+        return outputFrames; //placeholder
     }
 
     public int peek() { // return top of runtime stack
@@ -79,7 +99,7 @@ class RunTimeStack { // encountered error due to apple silicon
         rts.newFrameAt(0);
         rts.push(7);
         rts.push(8);
-        rts.newFrameAt(2);
+        System.out.println(rts.dump());
 
 
     }
