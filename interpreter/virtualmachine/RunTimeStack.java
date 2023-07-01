@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-class RunTimeStack {
+class RunTimeStack { // encountered error due to apple silicon 
 
     private List<Integer> runTimeStack; // stores local variables, arguments, and temporary storage
     // list because all variables must be accessible
@@ -19,6 +19,7 @@ class RunTimeStack {
     }
 
     public String dump() {
+
         return null; //placeholder
     }
 
@@ -54,13 +55,31 @@ class RunTimeStack {
         return push(runTimeStack.get(offsetFromFramePointer + framePointer.peek())); // offset from the frame pointer
     }
 
+    // offsetFromTopOfRunStack = # of slots before the top of the stack where the new frame will be created
     public void newFrameAt(int offsetFromTopOfRunStack) {
-        framePointer.push((runTimeStack.size() - 1) - offsetFromTopOfRunStack); // slots down from the top of the runTimeStack
+        framePointer.push(offsetFromTopOfRunStack);
     }
 
     public void popFrame () {
         framePointer.pop();
-
     }
+
+//    public static void main(String[] args) {
+//        RunTimeStack rts = new RunTimeStack();
+//        rts.push(1);
+//        rts.push(2);
+//        rts.push(3);
+//        rts.newFrameAt(0);
+//        rts.push(4);
+//        rts.push(5);
+//        rts.push(6);
+//        rts.newFrameAt(0);
+//        rts.push(7);
+//        rts.push(8);
+//        rts.newFrameAt(0);
+//
+//
+//    }
+
 
 }
