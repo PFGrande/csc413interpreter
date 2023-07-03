@@ -107,22 +107,23 @@ class RunTimeStack { // encountered error due to apple silicon
         framePointer.pop();
     }
 
-    public static void main(String[] args) {
-        RunTimeStack rts = new RunTimeStack();
-        rts.push(1);
-        rts.push(2);
-        rts.push(3);
-        rts.newFrameAt(0);
-        rts.push(4);
-        rts.push(5);
-        rts.push(6);
-        rts.newFrameAt(0);
-        rts.push(7);
-        rts.push(8);
-        System.out.println(rts.dump());
-
-
-    }
+//    public static void main(String[] args) {
+//        System.out.println("--- TEST DUMP: ---");
+//        RunTimeStack rts = new RunTimeStack();
+//        rts.push(1);
+//        rts.push(2);
+//        rts.push(3);
+//        rts.newFrameAt(0);
+//        rts.push(4);
+//        rts.push(5);
+//        rts.push(6);
+//        rts.newFrameAt(0);
+//        rts.push(7);
+//        rts.push(8);
+//        System.out.println(rts.dump());
+//
+//
+//    }
 
 
 }
