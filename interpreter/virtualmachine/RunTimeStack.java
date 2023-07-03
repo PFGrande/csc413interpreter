@@ -1,9 +1,6 @@
 package interpreter.virtualmachine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 class RunTimeStack { // encountered error due to apple silicon 
 
@@ -23,16 +20,39 @@ class RunTimeStack { // encountered error due to apple silicon
         Stack<Integer> copyPointers = framePointer;
         List<List<Integer>> runTimeSubLists = new ArrayList<>();
 
-
+        // adds top frame to the subList
         int endFrame = runTimeStack.size()-1;
         int beginningFrame = copyPointers.peek();
+        runTimeSubLists.add(runTimeStack.subList(beginningFrame, endFrame));
 
-        do { // pop and peek before reaching final element in stack
-            runTimeSubLists.add(runTimeStack.subList(beginningFrame, endFrame));
+        // adds remaining frames to the list
+        for (int i = 0; i < copyPointers.size(); i++) {
             endFrame = copyPointers.pop();
-            beginningFrame = copyPointers.peek();
-            System.out.println(beginningFrame);
-        } while(copyPointers.size() >= 0);
+            if (!copyPointers.empty()) {
+                beginningFrame = copyPointers.peek();
+                runTimeSubLists.add(runTimeStack.subList(beginningFrame, endFrame));
+            }
+
+
+        }
+
+
+//        while(copyPointers.size() >= 1) { // pop and peek before reaching final element in stack
+//            System.out.println(copyPointers.peek());
+//            System.out.println(endFrame);
+//            System.out.println(beginningFrame);
+//            System.out.println("size: " + copyPointers.size());
+//
+//            System.out.println(copyPointers);
+//
+//            runTimeSubLists.add(runTimeStack.subList(beginningFrame, endFrame));
+//
+//            if (copyPointers.size() != 1) {
+//                endFrame = copyPointers.pop();
+//                beginningFrame = copyPointers.peek();
+//            }
+//
+//        }
 
         String outputFrames = "";
 
