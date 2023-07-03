@@ -36,7 +36,7 @@ public class Interpreter {
         }
         program.resolveAddress();
         VirtualMachine virtualMachine = new VirtualMachine(program);
-        // virtualMachine.executeProgram(); broken for now
+        virtualMachine.executeProgram();
         
     }
 
