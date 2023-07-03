@@ -44,6 +44,7 @@ public final class ByteCodeLoader {
                 items = line.split("\\s+");
 //                System.out.println(Arrays.toString(items));
                 byteCodeName = items[0];
+                // items is passed in as args, bytecode name determines what class is instantiated
                 bc = ByteCode.getNewInstance(byteCodeName, items);
                 program.addByteCode(bc);
             }
