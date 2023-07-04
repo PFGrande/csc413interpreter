@@ -21,3 +21,5 @@ public interface ByteCode {
 
 
 }
+
+// pop bytecode should not lead to crash if given a larger number than contained in the stack
