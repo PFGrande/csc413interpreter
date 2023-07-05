@@ -38,5 +38,16 @@ public class VirtualMachine {
         isRunning = newStatus;
     }
 
+    // checks if the requested values are accessible from the current frame
+    public boolean isWithinFrame(int numberOfRequestedValues) {
+        // size of stack - the beginning address of the current frame = the size of the current frame
+        // requestedValues are within frame if the current frame contains more or less than the amount requested
+        return numberOfRequestedValues <= runTimeStack.getRunTimeStackSize() - runTimeStack.peekFrame();
+    }
+
+    public void popRunTimeStack() {
+        runTimeStack.pop();
+    }
+
 }
 

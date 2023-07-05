@@ -107,6 +107,14 @@ class RunTimeStack { // encountered error due to apple silicon
         framePointer.pop();
     }
 
+    public int getRunTimeStackSize() {
+        return runTimeStack.size();
+    }
+
+    public int peekFrame() {
+        return framePointer.peek();
+    }
+
 //    public static void main(String[] args) {
 //        System.out.println("--- TEST DUMP: ---");
 //        RunTimeStack rts = new RunTimeStack();
