@@ -26,15 +26,16 @@ public class VirtualMachine {
     public void executeProgram() {
         isRunning = true;
 
-        while (isRunning && programCounter < program.getSize()) {
+        while (isRunning && programCounter < program.getSize()) { // size + 1 because file starts at 1
             ByteCode code = program.getCode(programCounter);
+            System.out.println(code); // debugging HALT code
             code.execute(this);
             programCounter++;
         }
     }
 
     public void updateRunStatus(boolean newStatus) {
-        isRunning = false;
+        isRunning = newStatus;
     }
 
 }

@@ -40,7 +40,7 @@ public class Program {
      * @param c bytecode to be added
      */
     public void addByteCode(ByteCode c) {
-        System.out.println(c);
+        //System.out.println(c);
         program.add(c); // adds bytecode to arraylist
     }
 
