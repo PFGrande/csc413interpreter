@@ -26,7 +26,7 @@ public class VirtualMachine {
     public void executeProgram() {
         isRunning = true;
 
-        while (isRunning) {
+        while (isRunning && programCounter < program.getSize()) {
             ByteCode code = program.getCode(programCounter);
             code.execute(this);
             programCounter++;

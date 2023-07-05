@@ -14,8 +14,8 @@ public class Program {
      * Instantiates a program object using an
      * ArrayList
      */
-    public Program() {
-
+    public Program() { // NULL pointer exception fix, needed to initialize array
+        this.program = new ArrayList<>();
     }
 
     /**
@@ -40,6 +40,7 @@ public class Program {
      * @param c bytecode to be added
      */
     public void addByteCode(ByteCode c) {
+        System.out.println(c);
         program.add(c); // adds bytecode to arraylist
     }
 
@@ -54,8 +55,6 @@ public class Program {
         String label;
         int labelAddress;
         for(ByteCode code : program) {
-
-
             if (code instanceof LabelCode) {
                 label = ((LabelCode) code).getLabel();
                 labelAddress = program.indexOf(code);
