@@ -33,5 +33,9 @@ public class VirtualMachine {
         }
     }
 
+    public void updateRunStatus(boolean newStatus) {
+        isRunning = false;
+    }
+
 }
 
