@@ -32,6 +32,7 @@ public class VirtualMachine {
             code.execute(this);
             programCounter++;
         }
+        System.out.println(runTimeStack.getRunTimeStackSize()); //debug pop, pop does nothing if value exceeds frame
     }
 
     public void updateRunStatus(boolean newStatus) {
@@ -42,6 +43,8 @@ public class VirtualMachine {
     public boolean isWithinFrame(int numberOfRequestedValues) {
         // size of stack - the beginning address of the current frame = the size of the current frame
         // requestedValues are within frame if the current frame contains more or less than the amount requested
+        System.out.println(runTimeStack.getRunTimeStackSize() - runTimeStack.peekFrame()); //debugging pop,
+
         return numberOfRequestedValues <= runTimeStack.getRunTimeStackSize() - runTimeStack.peekFrame();
     }
 

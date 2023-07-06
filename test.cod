@@ -1,3 +1,6 @@
 GOTO main
+LIT 2 w
+LIT 1 j
+LIT 3 p
+POP 2
 HALT
-GOTO other

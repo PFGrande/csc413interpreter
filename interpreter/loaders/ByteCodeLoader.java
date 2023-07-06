@@ -40,7 +40,8 @@ public final class ByteCodeLoader {
             program = new Program(); // check if correct
 
             // remove spaces
-            for (line = reader.readLine(); reader.ready(); line = reader.readLine()) { // reader.ready() alternative to line != null
+            while (reader.ready()) { // reader.ready() alternative to line != null
+                line = reader.readLine();
                 items = line.split("\\s+");
 //                System.out.println(Arrays.toString(items));
                 byteCodeName = items[0];

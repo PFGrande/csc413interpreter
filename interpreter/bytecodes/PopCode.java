@@ -12,7 +12,7 @@ public class PopCode implements ByteCode, Dumpable{
     @Override
     public void execute(VirtualMachine vm) {
         if (vm.isWithinFrame(toPop)) {
-            for (int i = 0; i <= toPop; i++) {
+            for (int i = 0; i < toPop; i++) {
                 vm.popRunTimeStack();
             }
         }
