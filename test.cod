@@ -4,4 +4,10 @@ LIT 1 j
 LIT 3 p
 POP 3
 POP 3
+LIT 0
+FALSEBRANCH else<<1>>
+LIT 1
+LABEL else<<1>>
+LIT 2
+LIT 3
 HALT

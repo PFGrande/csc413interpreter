@@ -14,6 +14,11 @@ public class LabelCode implements ByteCode {
 
     }
 
+    @Override
+    public String toString() {
+        return "LABEL " + this.label;
+    }
+
     public String getLabel() {
         return label;
     }

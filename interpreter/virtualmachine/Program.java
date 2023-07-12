@@ -64,4 +64,8 @@ public class Program {
 
         }
     }
+
+    int getLabelAddress(String label) {
+        return labelAddresses.get(label);
+    }
 }
