@@ -3,7 +3,7 @@ package interpreter.bytecodes;
 import interpreter.virtualmachine.VirtualMachine;
 
 public class PopCode implements ByteCode, Dumpable{
-    int toPop; // amount of values to be popped from the RunTimeStack WITHIN a frame
+    private int toPop; // amount of values to be popped from the RunTimeStack WITHIN a frame
 
     public PopCode(String[] args) {
         this.toPop = Integer.parseInt(args[1]);

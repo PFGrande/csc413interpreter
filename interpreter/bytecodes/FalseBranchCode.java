@@ -3,7 +3,7 @@ package interpreter.bytecodes;
 import interpreter.virtualmachine.VirtualMachine;
 
 public class FalseBranchCode implements ByteCode, Dumpable {
-    String label;
+    private String label;
     public FalseBranchCode(String[] args) {
         this.label = args[1];
 
