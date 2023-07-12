@@ -2,7 +2,7 @@ package interpreter.bytecodes;
 
 import interpreter.virtualmachine.VirtualMachine;
 
-public class LitCode implements ByteCode { // LIT has the easiest dump
+public class LitCode implements ByteCode, Dumpable { // LIT has the easiest dump
     private String id; // variable name
     private int valueToPush; // value assigned to the id
 

@@ -3,7 +3,7 @@ package interpreter.bytecodes;
 import interpreter.virtualmachine.VirtualMachine;
 
 // copy value from offset (within the current frame) and push it to the top of the runtimestack
-public class LoadCode implements ByteCode {
+public class LoadCode implements ByteCode, Dumpable{
     private int offset;
     private String id;
 

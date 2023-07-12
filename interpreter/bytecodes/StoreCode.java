@@ -3,7 +3,7 @@ package interpreter.bytecodes;
 import interpreter.virtualmachine.VirtualMachine;
 // behavior: pops value from top of rts, places it within an index inside the current frame
 // offset: index from start of new frame
-public class StoreCode implements ByteCode { // explained @ 56:25
+public class StoreCode implements ByteCode, Dumpable { // explained @ 56:25
     private int storeAtOffset;
     private String id;
 
