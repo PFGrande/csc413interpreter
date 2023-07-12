@@ -1,0 +1,16 @@
+GOTO main
+LIT 9
+LABEL main
+LIT 2 w
+LIT 1 j
+LIT 3 p
+CALL main
+POP 3
+POP 3
+LIT 0
+FALSEBRANCH else<<1>>
+LIT 1
+LABEL else<<1>>
+LIT 2
+LIT 3
+HALT

@@ -1,17 +1,21 @@
 package interpreter.virtualmachine;
 
+import interpreter.bytecodes.*;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 public class Program {
 
     private List<ByteCode> program;
+    private HashMap<String, Integer> labelAddresses = new HashMap<String, Integer>();// hashmap stores the labels and their addresses
 
     /**
      * Instantiates a program object using an
      * ArrayList
      */
-    public Program() {
-
+    public Program() { // NULL pointer exception fix, needed to initialize array
+        this.program = new ArrayList<>();
     }
 
     /**
@@ -19,7 +23,7 @@ public class Program {
      * @return size of program
      */
     public int getSize() {
-        return 0;
+        return program.size();
     }
 
     /**
@@ -28,7 +32,7 @@ public class Program {
      * @return a bytecode.
      */
     public ByteCode getCode(int programCounter) {
-        return null;
+        return program.get(programCounter);
     }
 
     /**
@@ -36,7 +40,8 @@ public class Program {
      * @param c bytecode to be added
      */
     public void addByteCode(ByteCode c) {
-
+        //System.out.println(c);
+        program.add(c); // adds bytecode to arraylist
     }
 
     /**
@@ -47,6 +52,20 @@ public class Program {
      * **** METHOD SIGNATURE CANNOT BE CAHNGED *****
      */
     public void resolveAddress() {
+        String label;
+        int labelAddress;
+        for(ByteCode code : program) {
+            if (code instanceof LabelCode) {
+                label = ((LabelCode) code).getLabel();
+                labelAddress = program.indexOf(code);
 
+                labelAddresses.put(label, labelAddress);
+            }
+
+        }
+    }
+
+    int getLabelAddress(String label) {
+        return labelAddresses.get(label);
     }
 }
