@@ -132,8 +132,8 @@ class RunTimeStack { // encountered error due to apple silicon
 //
 //    }
 
-//    public void printStack() { // for debugging
-//        System.out.println(runTimeStack);
-//    }
+    public void printStack() { // for debugging
+        System.out.println(runTimeStack);
+    }
 
 }

@@ -25,6 +25,8 @@ public class VirtualMachine {
 
     public void store(int valueToStore) {this.runTimeStack.store(valueToStore);}
 
+    public void load(int offsetFromFramePointer) {this.runTimeStack.load(offsetFromFramePointer);}
+
     public void executeProgram() {
         isRunning = true;
 
