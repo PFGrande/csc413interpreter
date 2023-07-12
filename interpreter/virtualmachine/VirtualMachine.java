@@ -27,6 +27,9 @@ public class VirtualMachine {
 
     public void load(int offsetFromFramePointer) {this.runTimeStack.load(offsetFromFramePointer);}
 
+    public void newFrame(int address) {
+        this.runTimeStack.newFrameAt(address);
+    }
     public void executeProgram() {
         isRunning = true;
 
@@ -37,6 +40,7 @@ public class VirtualMachine {
             programCounter++;
             System.out.println("counter: " + programCounter); // for debug
             runTimeStack.printStack(); // debug
+            runTimeStack.printFrameStack();
 
         }
         //System.out.println(runTimeStack.getRunTimeStackSize()); //debug pop, pop does nothing if value exceeds frame
@@ -54,6 +58,10 @@ public class VirtualMachine {
         //System.out.println(runTimeStack.getRunTimeStackSize() - runTimeStack.peekFrame()); //debugging pop,
 
         return numberOfRequestedValues <= runTimeStack.getRunTimeStackSize() - runTimeStack.peekFrame();
+    }
+
+    public int getRunTimeStackSize() {
+        return  runTimeStack.getRunTimeStackSize();
     }
 
     public int getFrameSize() {

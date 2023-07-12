@@ -136,4 +136,8 @@ class RunTimeStack { // encountered error due to apple silicon
         System.out.println(runTimeStack);
     }
 
+    public void printFrameStack() { // for debugging
+        System.out.println(framePointer);
+    }
+
 }
