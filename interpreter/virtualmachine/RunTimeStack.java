@@ -114,7 +114,6 @@ class RunTimeStack { // encountered error due to apple silicon
     public int peekFrame() {
         return framePointer.peek();
     }
-
 //    public static void main(String[] args) {
 //        System.out.println("--- TEST DUMP: ---");
 //        RunTimeStack rts = new RunTimeStack();
@@ -133,5 +132,8 @@ class RunTimeStack { // encountered error due to apple silicon
 //
 //    }
 
+//    public void printStack() { // for debugging
+//        System.out.println(runTimeStack);
+//    }
 
 }
