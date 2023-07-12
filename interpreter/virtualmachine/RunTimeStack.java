@@ -19,11 +19,15 @@ class RunTimeStack { // encountered error due to apple silicon
     public String dump() {
         Stack<Integer> copyPointers = framePointer;
         List<List<Integer>> runTimeSubLists = new ArrayList<>();
+        int endFrame = 0;
+        int beginningFrame = 0;
+        if (copyPointers.peek() != 0) {
+            endFrame = runTimeStack.size()-1;
+            beginningFrame = copyPointers.peek();
+        }
+        runTimeSubLists.add(runTimeStack.subList(beginningFrame, endFrame));
 
         // adds top frame to the subList
-        int endFrame = runTimeStack.size()-1;
-        int beginningFrame = copyPointers.peek();
-        runTimeSubLists.add(runTimeStack.subList(beginningFrame, endFrame));
 
         // adds remaining frames to the list
         for (int i = 0; i < copyPointers.size(); i++) {
@@ -139,5 +143,4 @@ class RunTimeStack { // encountered error due to apple silicon
     public void printFrameStack() { // for debugging
         System.out.println(framePointer);
     }
-
 }

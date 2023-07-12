@@ -2,7 +2,7 @@ package interpreter.bytecodes;
 
 import interpreter.virtualmachine.VirtualMachine;
 
-public class ArgsCode implements ByteCode {
+public class ArgsCode implements ByteCode, Dumpable {
     private int argsAmount;
 
     public ArgsCode(String[] args) {
@@ -12,12 +12,12 @@ public class ArgsCode implements ByteCode {
     @Override
     public void execute(VirtualMachine vm) {
         System.out.println(vm.getRunTimeStackSize());
-        System.out.println(argsAmount);
-        vm.newFrame(vm.getRunTimeStackSize()-argsAmount);
+        System.out.println(this.argsAmount);
+        vm.newFrame(vm.getRunTimeStackSize()-this.argsAmount);
     }
 
     @Override
     public String toString() {
-        return "ARGS " + argsAmount;
+        return "ARGS " + this.argsAmount;
     }
 }

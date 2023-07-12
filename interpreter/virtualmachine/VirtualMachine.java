@@ -11,6 +11,7 @@ public class VirtualMachine {
     private Program        program;
     private int            programCounter;
     private boolean        isRunning;
+    private boolean        dumpStatus;
 
     public VirtualMachine(Program program) {
         this.program = program;
@@ -25,11 +26,26 @@ public class VirtualMachine {
 
     public void store(int valueToStore) {this.runTimeStack.store(valueToStore);}
 
-    public void load(int offsetFromFramePointer) {this.runTimeStack.load(offsetFromFramePointer);}
+    public void load(int offsetFromFramePointer) {
+        this.runTimeStack.load(offsetFromFramePointer);
+    }
 
     public void newFrame(int address) {
         this.runTimeStack.newFrameAt(address);
     }
+
+    public void pushReturnAddress() {
+        returnAddress.push(programCounter);
+    }
+
+    public void returnToAddress() {
+        programCounter = returnAddress.pop();
+    }
+
+    public void updateDumpStatus(boolean status) {
+        dumpStatus = status;
+    }
+
     public void executeProgram() {
         isRunning = true;
 
@@ -38,9 +54,12 @@ public class VirtualMachine {
             System.out.println(code); // debugging HALT code prints all he bytecordes being executed
             code.execute(this);
             programCounter++;
-            System.out.println("counter: " + programCounter); // for debug
-            runTimeStack.printStack(); // debug
-            runTimeStack.printFrameStack();
+            //System.out.println("counter: " + programCounter); // for debug
+            //runTimeStack.printStack(); // debug
+            //runTimeStack.printFrameStack();
+//            if (dumpStatus) {
+//                runTimeStack.dump();
+//            }
 
         }
         //System.out.println(runTimeStack.getRunTimeStackSize()); //debug pop, pop does nothing if value exceeds frame
