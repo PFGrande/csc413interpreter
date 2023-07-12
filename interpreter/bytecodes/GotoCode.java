@@ -11,7 +11,7 @@ public class GotoCode implements ByteCode, Dumpable {
 
     @Override
     public void execute(VirtualMachine vm) {
-
+        vm.jump(vm.getLabelAddress(this.label));
     }
 
     @Override
