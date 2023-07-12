@@ -24,9 +24,9 @@ public class StoreCode implements ByteCode { // explained @ 56:25
     @Override
     public String toString() {
         String base = "STORE " + this.storeAtOffset;
-        if (this.id != null) {
-            base += " " + id;
-        }
+//        if (this.id != null) { PDF Does NOT show id for store being printed when dumped
+//            base += " " + id;
+//        }
 
         return base;
     }
